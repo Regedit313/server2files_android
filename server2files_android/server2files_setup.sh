@@ -19,6 +19,7 @@ for file in \
     "$APP_DIR/server2files.sh" \
     "$APP_DIR/server2files_setup.sh" \
     "$APP_DIR/server2files_termuxshortcut.sh" \
+    "$APP_DIR/startmegaserver.sh" \
     "$APP_DIR/httpserver_android/httpserver.sh" \
     "$APP_DIR/httpserver_android/httpserver_setup.sh" \
     "$APP_DIR/portmanager_android/portmanager.sh" \
@@ -41,6 +42,7 @@ for file in \
     "$APP_DIR/server2files.sh" \
     "$APP_DIR/server2files_setup.sh" \
     "$APP_DIR/server2files_termuxshortcut.sh" \
+    "$APP_DIR/startmegaserver.sh" \
     "$APP_DIR/httpserver_android/httpserver.sh" \
     "$APP_DIR/httpserver_android/httpserver_setup.sh" \
     "$APP_DIR/portmanager_android/portmanager.sh" \
@@ -67,3 +69,4 @@ echo
 echo "Setup check completed."
 echo
 read -r -p "Press Enter to continue..."
+

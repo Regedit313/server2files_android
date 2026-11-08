@@ -53,6 +53,8 @@ while true; do
     echo
     echo "3) FTPserver"
     echo
+    echo "4) MegaServer"
+    echo
     echo
     echo "9) Run Setup / Update"
     echo
@@ -78,6 +80,10 @@ while true; do
             run_app "$APP_DIR/ftpserver_android/ftpserver.sh"
             ;;
 
+        4)
+            run_app "$APP_DIR/startmegaserver.sh"
+            ;;
+
         9)
             clear
             run_setup
@@ -96,3 +102,4 @@ while true; do
 
     esac
 done
+

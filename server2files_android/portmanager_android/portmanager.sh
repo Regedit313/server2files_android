@@ -226,7 +226,7 @@ prompt_protocol() {
                 return 0
                 ;;
 
-            0)
+            0|"")
                 return 1
                 ;;
 
@@ -281,7 +281,7 @@ prompt_timer() {
                 return 0
                 ;;
 
-            0)
+            0|"")
                 return 1
                 ;;
 
@@ -406,7 +406,7 @@ first_run_menu() {
                 first_configuration
                 ;;
 
-            0)
+            0|"")
                 clear
                 exit 0
                 ;;
@@ -573,7 +573,7 @@ configure_menu() {
                 fi
                 ;;
 
-            0)
+            0|"")
                 return
                 ;;
 
@@ -652,7 +652,7 @@ while true; do
             run_setup
             ;;
 
-        0)
+        0|"")
             clear
             exit 0
             ;;

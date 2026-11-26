@@ -309,7 +309,7 @@ while true; do
             stop_megaserver
             ;;
 
-        0)
+        0|"")
             exit 0
             ;;
 

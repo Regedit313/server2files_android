@@ -483,7 +483,7 @@ backup_restore_menu() {
                 import_config
                 ;;
 
-            0)
+            0|"")
                 return
                 ;;
 
@@ -546,7 +546,7 @@ while true; do
             run_setup
             ;;
 
-        0)
+        0|"")
             clear
             exit 0
             ;;

@@ -6,6 +6,7 @@ clear
 cd "$(dirname "$0")" || exit 1
 
 APP_DIR="$(pwd -P)"
+DATA_DIR="$HOME/storage/shared/server2files_data"
 
 echo
 echo "portmanager_android Setup / Update"
@@ -50,6 +51,15 @@ else
 fi
 
 echo
+if ! mkdir -p "$DATA_DIR"; then
+    echo
+    echo "Error: cannot create persistent data folder:"
+    echo "$DATA_DIR"
+    echo
+    read -r -p "Press Enter to continue..."
+    exit 1
+fi
+
 echo "Installing/checking miniupnpc and jq..."
 echo
 
@@ -111,7 +121,8 @@ fi
 echo
 echo "Installation completed."
 echo
-echo "The configuration file is created after initial configuration."
+echo "The configuration file is created after initial configuration:"
+echo "$DATA_DIR/portmanager.json"
 echo
 echo "Start the application by launching:"
 echo "$APP_DIR/portmanager.sh"

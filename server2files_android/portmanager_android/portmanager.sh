@@ -4,7 +4,8 @@
 cd "$(dirname "$0")" || exit 1
 
 APP_DIR="$(pwd -P)"
-CONFIG_FILE="$APP_DIR/config.json"
+DATA_DIR="$HOME/storage/shared/server2files_data"
+CONFIG_FILE="$DATA_DIR/portmanager.json"
 
 pause_screen() {
     echo
@@ -126,7 +127,12 @@ save_config() {
     local timer="$5"
     local temp_file
 
-    if ! temp_file="$(mktemp "$APP_DIR/.portmanager.XXXXXX")"; then
+    if ! mkdir -p "$DATA_DIR"; then
+        echo "Error: cannot create persistent data folder."
+        return 1
+    fi
+
+    if ! temp_file="$(mktemp "$DATA_DIR/.portmanager.XXXXXX")"; then
         echo "Error: cannot create temporary config file."
         return 1
     fi

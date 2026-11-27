@@ -9,6 +9,7 @@ APP_DIR="$(pwd -P)"
 HTTP_DIR="/storage/emulated/0/FTPshare"
 HFS_CWD="$HOME/.hfs_httpserver_android"
 HFS_PUBLIC_CWD="$HOME/.hfs_httpserver_public"
+DATA_DIR="$HOME/storage/shared/server2files_data"
 
 echo
 echo "httpserver_android Setup / Update"
@@ -61,6 +62,15 @@ if ! mkdir -p "$HTTP_DIR"; then
     echo "Error: cannot create FTPshare:"
     echo "$HTTP_DIR"
     echo "Please grant Termux storage access and run setup again."
+    echo
+    read -p "Press Enter to continue..."
+    exit 1
+fi
+
+if ! mkdir -p "$DATA_DIR"; then
+    echo
+    echo "Error: cannot create persistent data folder:"
+    echo "$DATA_DIR"
     echo
     read -p "Press Enter to continue..."
     exit 1
@@ -218,7 +228,7 @@ echo "Shared HTTP folder:"
 echo "$HTTP_DIR"
 echo
 echo "Backup file location:"
-echo "$APP_DIR/hfs_backup.tar.gz"
+echo "$DATA_DIR/httpserver.tar.gz"
 echo
 echo "Start the server by launching:"
 echo "$APP_DIR/httpserver.sh"

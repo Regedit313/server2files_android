@@ -8,7 +8,8 @@ HTTP_DIR="/storage/emulated/0/FTPshare"
 HFS_CWD="$HOME/.hfs_httpserver_android"
 HFS_PUBLIC_CWD="$HOME/.hfs_httpserver_public"
 
-BACKUP_FILE="$APP_DIR/hfs_backup.tar.gz"
+DATA_DIR="$HOME/storage/shared/server2files_data"
+BACKUP_FILE="$DATA_DIR/httpserver.tar.gz"
 
 pause_screen() {
     echo
@@ -293,7 +294,13 @@ export_config() {
     # Preserve any existing backup if export fails.
     local temp_backup
 
-    if ! temp_backup="$(mktemp "$APP_DIR/.hfs_backup.XXXXXX")"; then
+    if ! mkdir -p "$DATA_DIR"; then
+        echo "Error: cannot create persistent data folder."
+        pause_screen
+        return
+    fi
+
+    if ! temp_backup="$(mktemp "$DATA_DIR/.hfs_backup.XXXXXX")"; then
         echo "Error: cannot create temporary backup."
         pause_screen
         return
@@ -340,8 +347,8 @@ import_config() {
     if [ ! -f "$BACKUP_FILE" ]; then
         echo "No backup file found."
         echo
-        echo "Please put hfs_backup.tar.gz inside:"
-        echo "$APP_DIR"
+        echo "Please put httpserver.tar.gz inside:"
+        echo "$DATA_DIR"
         echo
         pause_screen
         return

@@ -6,6 +6,7 @@ clear
 cd "$(dirname "$0")" || exit 1
 
 APP_DIR="$(pwd -P)"
+DATA_DIR="$HOME/storage/shared/server2files_data"
 
 echo
 echo "server2files_android Setup / Update"
@@ -62,6 +63,17 @@ else
     echo "All required project files are present."
 fi
 
+echo
+if ! mkdir -p "$DATA_DIR"; then
+    echo "Error: cannot create persistent data folder:"
+    echo "$DATA_DIR"
+    echo
+    read -r -p "Press Enter to continue..."
+    exit 1
+fi
+
+echo "Persistent data folder:"
+echo "$DATA_DIR"
 echo
 echo "No server dependencies are installed by this setup."
 echo "Each application manages its own dependencies and updates."

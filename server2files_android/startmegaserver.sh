@@ -6,7 +6,7 @@ cd "$(dirname "$0")" || exit 1
 APP_DIR="$(pwd -P)"
 HFS_CWD="$HOME/.hfs_httpserver_android"
 FTP_DIR="/storage/emulated/0/FTPshare"
-CONFIG_FILE="$APP_DIR/portmanager_android/config.json"
+CONFIG_FILE="$HOME/storage/shared/server2files_data/portmanager.json"
 
 RUN_DIR="$HOME/.startmegaserver"
 STATE_FILE="$RUN_DIR/state"
@@ -72,7 +72,7 @@ read_port_config() {
         (.timer | type == "number")
     ' "$CONFIG_FILE" >/dev/null 2>&1; then
 
-        echo "Error: missing or invalid Portmanager config.json."
+        echo "Error: missing or invalid Portmanager portmanager.json."
         echo "Configure Portmanager first."
         return 1
     fi

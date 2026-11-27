@@ -4,6 +4,14 @@
 cd "$(dirname "$0")" || exit 1
 
 APP_DIR="$(pwd -P)"
+DATA_DIR="$HOME/storage/shared/server2files_data"
+
+mkdir -p "$DATA_DIR" || {
+    echo "Error: unable to create data directory:"
+    echo "$DATA_DIR"
+    read -r -p "Press Enter to continue..."
+    exit 1
+}
 
 pause_screen() {
     echo
